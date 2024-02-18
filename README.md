@@ -2,8 +2,10 @@
 
 WIP for README
 
-[![Alt text](public/images/layout.png)
+### Viewing all listings
+![Alt text](public/images/layout.png)
 
-[![Alt text](public/images/show.png)
+### Viewing a listing
+![Alt text](public/images/show.png)
 
 
