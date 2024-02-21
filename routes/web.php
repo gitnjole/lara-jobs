@@ -46,3 +46,7 @@ Route::get('register',[
 Route::post('register',[
     UserController::class, 'store'
 ]);
+
+Route::post('logout',[
+    UserController::class, 'logout'
+]);
