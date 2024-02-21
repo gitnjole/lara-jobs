@@ -70,6 +70,8 @@ class ListingController extends Controller
             $formFields['logo_path'] = $request->file('logo')->store('logos', 'public');
         }
 
+        $formFields['user_id'] = auth()->id();
+
         Listing::create($formFields);
         
         return redirect('/')->with('message', 'Listing created successfully!');
