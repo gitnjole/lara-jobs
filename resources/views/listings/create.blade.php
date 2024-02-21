@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('components/layout')
 @section('content')
 
 <div
@@ -11,18 +11,22 @@ class="bg-gray-50 border border-gray-200 p-10 rounded max-w-lg mx-auto mt-24"
     <p class="mb-4">Post a gig to find a developer</p>
 </header>
 
-<form action="">
+<form action="/listings" method="POST">
+    @csrf
     <div class="mb-6">
         <label
-            for="company"
+            for="company_name"
             class="inline-block text-lg mb-2"
             >Company Name</label
         >
         <input
             type="text"
             class="border border-gray-200 rounded p-2 w-full"
-            name="company"
+            name="company_name"
         />
+        @error('company_name')
+        <p class="text-red-500">{{$message}}</p>
+        @enderror
     </div>
 
     <div class="mb-6">
@@ -35,6 +39,9 @@ class="bg-gray-50 border border-gray-200 p-10 rounded max-w-lg mx-auto mt-24"
             name="title"
             placeholder="Example: Senior Laravel Developer"
         />
+        @error('title')
+        <p class="text-red-500">{{$message}}</p>
+        @enderror
     </div>
 
     <div class="mb-6">
@@ -49,17 +56,23 @@ class="bg-gray-50 border border-gray-200 p-10 rounded max-w-lg mx-auto mt-24"
             name="location"
             placeholder="Example: Remote, Boston MA, etc"
         />
+        @error('location')
+        <p class="text-red-500">{{$message}}</p>
+        @enderror
     </div>
 
     <div class="mb-6">
-        <label for="email" class="inline-block text-lg mb-2"
+        <label for="contact_email" class="inline-block text-lg mb-2"
             >Contact Email</label
         >
         <input
             type="text"
             class="border border-gray-200 rounded p-2 w-full"
-            name="email"
+            name="contact_email"
         />
+        @error('contact_email')
+        <p class="text-red-500">{{$message}}</p>
+        @enderror
     </div>
 
     <div class="mb-6">
@@ -74,6 +87,9 @@ class="bg-gray-50 border border-gray-200 p-10 rounded max-w-lg mx-auto mt-24"
             class="border border-gray-200 rounded p-2 w-full"
             name="website"
         />
+        @error('website')
+        <p class="text-red-500">{{$message}}</p>
+        @enderror
     </div>
 
     <div class="mb-6">
@@ -86,6 +102,9 @@ class="bg-gray-50 border border-gray-200 p-10 rounded max-w-lg mx-auto mt-24"
             name="tags"
             placeholder="Example: Laravel, Backend, Postgres, etc"
         />
+        @error('tags')
+        <p class="text-red-500">{{$message}}</p>
+        @enderror
     </div>
 
     <div class="mb-6">
