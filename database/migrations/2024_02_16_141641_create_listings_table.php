@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('listings', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()
+            ->onDelete('CASCADE');
             $table->string('title');
             $table->string('company_name');
             $table->string('logo_path')->nullable();
