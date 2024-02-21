@@ -33,3 +33,7 @@ Route::get('listings/{listing}/edit', [
 Route::put('listings/{listing}', [
     ListingController::class,'update'
 ]);
+
+Route::delete('listings/{listing}', [
+    ListingController::class,'delete'
+]);
