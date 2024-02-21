@@ -63,8 +63,12 @@ class ListingController extends Controller
             'contact_email' => 'required|email',
             'tags' => 'required',
             'website' => 'required|url',
-            'description' => 'nullable'
+            'description' => 'nullable',
         ]);  
+
+        if ($request->hasFile('logo')) {
+            $formFields['logo_path'] = $request->file('logo')->store('logos', 'public');
+        }
 
         Listing::create($formFields);
         
