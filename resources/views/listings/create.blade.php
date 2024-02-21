@@ -146,7 +146,7 @@ class="bg-gray-50 border border-gray-200 p-10 rounded max-w-lg mx-auto mt-24"
         <button
             class="bg-laravel text-white rounded py-2 px-4 hover:bg-black"
         >
-            Create Gig
+            Create job
         </button>
 
         <a href="/" class="text-black ml-4"> Back </a>
