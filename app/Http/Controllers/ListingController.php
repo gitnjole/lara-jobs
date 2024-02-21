@@ -120,7 +120,14 @@ class ListingController extends Controller
         
         return redirect('listings/'. $listing['id'])->with('message', 'Listing updated successfully!');
     }
-
+    
+    /**
+     * Method for destroying a listing
+     *
+     * @param Listing $listing
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function destroy(Listing $listing): \Illuminate\Http\RedirectResponse
     {
         $listing->delete();
