@@ -40,7 +40,14 @@ class UserController extends Controller
         
         return redirect('/')->with('message', 'Account created successfully! Welcome to LaraJobs.');
     }
-
+    
+    /**
+     * Method for logging out user
+     *
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function logout(Request $request): \Illuminate\Http\RedirectResponse
     {
         auth()->logout();
@@ -49,5 +56,41 @@ class UserController extends Controller
         $request->session()->regenerate();
 
         return redirect('/')->with('message','You have logged out.');
+    }
+    
+    /**
+     * Method for showing login
+     * view
+     *
+     * @return \Illuminate\View\View
+     */
+    public function login(): \Illuminate\View\View
+    {
+        return view('users/login');
+    }
+    
+    /**
+     * Method for authenticating user login
+     *
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function authenticate(Request $request): \Illuminate\Http\RedirectResponse
+    {
+        $formFields = $request->validate([
+            'email' => "required|email|",
+            'password' => 'required',
+        ]);
+
+
+        if(auth()->attempt($formFields)) {
+            $request->session()->regenerate();
+
+            return redirect('/')->with('message','You are now logged in!');
+        }
+
+        return back()->withErrors(['email' => 'Invalid credentials'])->onlyInput('email');
+
     }
 }
