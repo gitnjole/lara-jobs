@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('components/layout')
 
 @section('content')
 @include('partials/_hero')
