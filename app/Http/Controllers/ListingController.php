@@ -17,7 +17,8 @@ class ListingController extends Controller
     public function index(Request $request): \Illuminate\View\View
     {
         return view('listings/index', [
-            'listings' => Listing::latest()->filter($request->only('tag', 'search'))->get()
+            'listings' => Listing::latest()->filter($request->only('tag', 'search'))
+                ->paginate(6)
             ]);
     }
     

@@ -10,7 +10,6 @@
 
 @foreach ($listings as $listing)
     <x-listing-card :listing="$listing"/>
-    
 @endforeach
 
 @else
@@ -18,5 +17,7 @@
 @endunless
 
 </div>
-
+<div class="mt-6 p-4">
+    {{$listings->links()}}
+</div>
 @endsection
