@@ -48,9 +48,9 @@ class ListingController extends Controller
     }
     
     /**
-     * Method store
+     * Method to store a new listing to database
      *
-     * @param Request $request [explicite description]
+     * @param Request $request
      *
      * @return \Illuminate\Http\RedirectResponse
      */
@@ -73,5 +73,49 @@ class ListingController extends Controller
         Listing::create($formFields);
         
         return redirect('/')->with('message', 'Listing created successfully!');
+    }
+    
+    /**
+     * Method for showing edit view
+     *
+     * @param Listing $listing
+     *
+     * @return \Illuminate\View\View
+     */
+    public function edit(Listing $listing): \Illuminate\View\View
+    {
+        return view('listings/edit', [
+            'listing' => $listing
+        ]);
+    }
+    
+    /**
+     * Method for updating the database with
+     * new data
+     * 
+     * @param Request $request
+     * @param Listing $listing
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function update(Request $request, Listing $listing): \Illuminate\Http\RedirectResponse
+    {
+        $formFields = $request->validate([
+            'title' => 'required',
+            'company_name' => 'required',
+            'location' => 'required',
+            'contact_email' => 'required|email',
+            'tags' => 'required',
+            'website' => 'required|url',
+            'description' => 'nullable',
+        ]);  
+
+        if ($request->hasFile('logo')) {
+            $formFields['logo_path'] = $request->file('logo')->store('logos', 'public');
+        }
+
+        $listing->update($formFields);
+        
+        return redirect('/')->with('message', 'Listing updated successfully!');
     }
 }
