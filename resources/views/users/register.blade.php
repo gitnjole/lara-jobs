@@ -6,7 +6,7 @@
         <h2 class="text-2xl font-bold uppercase mb-1">
             Register
         </h2>
-        <p class="mb-4">Create an account to post gigs</p>
+        <p class="mb-4">Create an account to post jobs</p>
     </header>
 
     <form action="/register" method="POST">
