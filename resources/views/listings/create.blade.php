@@ -11,7 +11,7 @@ class="bg-gray-50 border border-gray-200 p-10 rounded max-w-lg mx-auto mt-24"
     <p class="mb-4">Post a gig to find a developer</p>
 </header>
 
-<form action="/listings" method="POST">
+<form action="/listings" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="mb-6">
         <label
@@ -122,6 +122,9 @@ class="bg-gray-50 border border-gray-200 p-10 rounded max-w-lg mx-auto mt-24"
             class="border border-gray-200 rounded p-2 w-full"
             name="logo"
         />
+        @error('logo')
+        <p class="text-red-500">{{$message}}</p>
+        @enderror
     </div>
 
     <div class="mb-6">
