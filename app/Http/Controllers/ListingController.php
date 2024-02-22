@@ -134,4 +134,17 @@ class ListingController extends Controller
 
         return redirect('/')->with('message','Listing successfully deleted');
     }
+    
+    /**
+     * Method for showing the manage
+     * view
+     *
+     * @return \Illuminate\View\View
+     */
+    public function manage(): \Illuminate\View\View
+    {
+        return view('listings/manage', [
+            'listings' => auth()->user()->listings()->get()
+        ]);
+    }
 }
