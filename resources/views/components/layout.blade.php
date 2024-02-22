@@ -39,10 +39,10 @@
                     </span>
                 </li>
                 <li>
-                    <a href="/listings/manage" class="hover:text-laravel"
+                    <a href="/manage" class="hover:text-laravel"
                         ><i class="fa-solid fa-gear"></i>
-                        Manage Your Listings</a
-                    >
+                        Manage Your Listings
+                    </a>
                 </li>
                 <li>
                     <form action="/logout" method="POST" class="inline">

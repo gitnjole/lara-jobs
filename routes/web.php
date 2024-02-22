@@ -36,7 +36,7 @@ Route::put('listings/{listing}', [
 ])->middleware('auth');
 
 Route::delete('listings/{listing}', [
-    ListingController::class,'delete'
+    ListingController::class,'destroy'
 ])->middleware('auth');
 
 Route::get('register',[
@@ -58,3 +58,7 @@ Route::get('login',[
 Route::post('users/authenticate',[
     UserController::class, 'authenticate'
 ])->middleware('guest');
+
+Route::get('/manage', [
+    ListingController::class, 'manage'
+])->middleware('auth');
