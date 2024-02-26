@@ -1,6 +1,6 @@
 # LaraJobs
 
-This is a simple job posting board built using the Laravel framework. It allows users to post job listings and browse existing listings.
+This is a simple job posting board built using the Laravel framework. It allows users to post job listings and browse existing listings. Visitors can view job listings and sort them through tags and search filters.
 
 LaraJobs posting board is a RESTful API application built on top of the Laravel framework and MySQL database. Leveraging Laravel's migration system, the database schema was created and managed effortlessly. The API follows REST principles, providing clear and intuitive endpoints for performing CRUD operations on job listings.
 
@@ -54,9 +54,7 @@ Since this is an example project, I'd encourage for this project to be cloned an
 Currently the application is in the working state, but as I find more time to refine it it will become more fleshed out. Currently,
 I have a couple ideas for improving this project so you can check back after some time and see if I've done any further work!
 
-- **Company banners:** Currently, users need to post their company logo every time they post a job which gets very tedious. I could refine this so that
-users need to post a company logo which would be permanent throughout their account listings (but changeable), and if they wish they can post additional 'banners'
-on their listings to customize the look of the listing.
+- **Company banners:** Currently, users need to post their company logo every time they post a job which gets very tedious and storage consuming. I could refine this so that users need to post a company logo which would be permanent throughout their account listings (but changeable), and if they wish they can post additional 'banners' on their listings to customize the look of the listing.
 
 Projected complexity: Time consuming
 
