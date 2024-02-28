@@ -47,7 +47,7 @@ php artisan serve
 
 ## Contributing / Tweaking
 
-Since this is an example project, I'd encourage for this project to be cloned and renamed so you can use it for your own purposes.
+Since this is a personal project, I'd encourage for this project to be cloned and renamed so you can use it and tweak it for your own purposes.
 
 ## Further ideas
 
