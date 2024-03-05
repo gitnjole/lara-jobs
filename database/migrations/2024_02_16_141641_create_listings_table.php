@@ -17,7 +17,7 @@ return new class extends Migration
             ->onDelete('CASCADE');
             $table->string('title');
             $table->string('company_name');
-            $table->string('logo_path')->nullable();
+            $table->string('banner_path')->nullable();
             $table->string('tags');
             $table->string('location');
             $table->string('contact_email');
