@@ -17,7 +17,7 @@ class Listing extends Model
         'contact_email',
         'description',
         'tags',
-        'logo_path',
+        'banner_path',
         'user_id'
     ];
 

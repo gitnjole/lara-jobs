@@ -32,6 +32,10 @@ class UserController extends Controller
             'password' => 'required|confirmed|min:12',
         ]);  
 
+        if ($request->hasFile('logo')) {
+            $formFields['logo_path'] = $request->file('logo')->store('logos', 'public');
+        }
+
         $formFields['password'] = bcrypt($formFields['password']);
 
         $user = User::create($formFields);

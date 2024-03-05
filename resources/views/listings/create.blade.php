@@ -114,15 +114,15 @@ class="bg-gray-50 border border-gray-200 p-10 rounded max-w-lg mx-auto mt-24"
     </div>
 
     <div class="mb-6">
-        <label for="logo" class="inline-block text-lg mb-2">
-            Company Logo
+        <label for="banner" class="inline-block text-lg mb-2">
+            Listing Banner
         </label>
         <input
             type="file"
             class="border border-gray-200 rounded p-2 w-full"
-            name="logo"
+            name="banner"
         />
-        @error('logo')
+        @error('banner')
         <p class="text-red-500">{{$message}}</p>
         @enderror
     </div>

@@ -16,10 +16,13 @@ class ListingController extends Controller
      */
     public function index(Request $request): \Illuminate\View\View
     {
+        $listings = Listing::with('user')->latest()
+            ->filter($request->only('tag', 'search'))
+            ->simplePaginate(6);
+
         return view('listings/index', [
-            'listings' => Listing::latest()->filter($request->only('tag', 'search'))
-                ->simplePaginate(6)
-            ]);
+            'listings' => $listings
+        ]);
     }
     
     /**
@@ -66,8 +69,10 @@ class ListingController extends Controller
             'description' => 'nullable',
         ]);  
 
-        if ($request->hasFile('logo')) {
-            $formFields['logo_path'] = $request->file('logo')->store('logos', 'public');
+        if ($request->hasFile('banner')) {
+            $formFields['banner_path'] = $request->file('banner')->store('banners', 'public');
+        } else {
+            $formFields['banner_path'] = null;
         }
 
         $formFields['user_id'] = auth()->id();
@@ -116,8 +121,13 @@ class ListingController extends Controller
             'description' => 'nullable',
         ]);  
 
-        if ($request->hasFile('logo')) {
-            $formFields['logo_path'] = $request->file('logo')->store('logos', 'public');
+        if ($request->hasFile('banner')) {
+            $formFields['banner_path'] = $request->validate([
+                'banner' => 'nullable|image|dimensions:width=800, height=200'
+            ]);
+            $formFields['banner_path'] = $request->file('banner')->store('banners', 'public');
+        } else {
+            $formFields['banner_path'] = null;
         }
 
         $listing->update($formFields);
