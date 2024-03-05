@@ -51,10 +51,11 @@ Since this is a personal project, I'd encourage for this project to be cloned an
 
 ## Further ideas
 
-Currently the application is in the working state, but as I find more time to refine it it will become more fleshed out. Currently,
+Currently the application is in the working state, but as I find more time to refine it it will become more fleshed out.
 I have a couple ideas for improving this project so you can check back after some time and see if I've done any further work!
 
-- **Company banners:** Currently, users need to post their company logo every time they post a job which gets very tedious and storage consuming. I could refine this so that users need to post a company logo which would be permanent throughout their account listings (but changeable), and if they wish they can post additional 'banners' on their listings to customize the look of the listing.
+- ~~**Company banners:** Users need to post their company logo every time they post a job which gets very tedious and storage consuming. I could refine this so that users need to post a company logo which would be permanent throughout their account listings (but changeable), and if they wish they can post additional 'banners' on their listings to customize the look of the listing~~
+- **Company banners** have been implemented and logos are now permanent throughout your listings!
 
 Projected complexity: Time consuming
 
