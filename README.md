@@ -57,7 +57,7 @@ I have a couple ideas for improving this project so you can check back after som
 - ~~**Company banners:** Users need to post their company logo every time they post a job which gets very tedious and storage consuming. I could refine this so that users need to post a company logo which would be permanent throughout their account listings (but changeable), and if they wish they can post additional 'banners' on their listings to customize the look of the listing~~
 - **Company banners** have been implemented and logos are now permanent throughout your listings!
 
-- **Redefine User-Company-Listings relations:** Currently, the user is basically the company and the field 'name' is synonymous with the name of their company. Aside from confusion it would be a good idea to invest time to redefine the database structure and allow for discrete, precise attributes for users and companies. Along with this I should eliminate the need to retype the company name every time a listing is posted, along with location/company description etc.
+- **Redefine User-Company-Listings relations:** The user is currently essentially the company, with the field 'name' synonymous with the name of their company. However, this setup can lead to confusion and inefficiencies. To address this, I plan on investing time in redefining the database structure to allow for discrete, precise attributes for users and companies. Additionally, it's important to eliminate the need to retype the company name every time a listing is posted, along with location/company description, etc.
 
 Projected complexity: Time consuming
 
