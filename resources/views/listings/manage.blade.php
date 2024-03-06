@@ -91,6 +91,13 @@
                     <p class="text-center">
                         No listings found.
                     </p>
+                    <div class="flex justify-center">
+                        <a
+                            href="/listings/create"
+                            class="center bg-black text-white py-2 px-5"
+                            >Post a new listing!
+                        </a>
+                    </div>
                 </td>
             </tr>
             @endunless
