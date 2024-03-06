@@ -46,6 +46,33 @@ class UserController extends Controller
     }
     
     /**
+     * Method for updating user
+     *
+     * @param Request $request
+     * @param User $user
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function put(Request $request, User $user): \Illuminate\Http\RedirectResponse
+    {
+        if ($user->id != auth()->id()) {
+            abort(403, 'Unauthorized Action');
+        }
+
+        $formFields = $request->validate([
+            'name' => 'required|min:4'
+        ]);  
+
+        if ($request->hasFile('logo')) {
+            $formFields['logo_path'] = $request->file('logo')->store('logos', 'public');
+        }
+
+        $user->update($formFields);
+        
+        return redirect('/manage')->with('message', 'Account updated successfully!');
+    }
+    
+    /**
      * Method for logging out user
      *
      * @param Request $request

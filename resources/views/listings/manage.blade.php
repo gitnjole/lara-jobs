@@ -2,6 +2,42 @@
 @section('content')
 <x-card class="p-10">
     <header>
+        <h1 class="text-3xl text-center font-bold my-6 uppercase">Manage Your Account</h1>
+    </header>
+
+    <div class="flex items-center justify-center">
+        <div class="w-1/2">
+            <form action="/users/{{$user->id}}" method="POST" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
+
+                <div class="mb-6">
+                    <label for="name" class="block text-lg font-semibold mb-2">Company name:</label>
+                    <input type="text" name="name" id="name" value="{{$user->name}}" class="w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:border-blue-400">
+                </div>
+
+                <div class="mb-6 flex justify-center items-center">
+                    <label for="logo" class="block text-lg font-semibold mb-2">Company logo:</label>
+                    <img src="{{ asset($user->logo_path ? 'storage/' . $user->logo_path : 'images/no-image.png') }}" class="logo">
+                </div>
+
+                <div class="mb-6">
+                    <label for="logo" class="block text-lg font-semibold mb-2">Update logo:</label>
+                    <input type="file" name="logo" id="logo" class="w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:border-blue-400">
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition duration-300">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</x-card>
+
+
+
+<x-card class="p-10">
+    <header>
         <h1
             class="text-3xl text-center font-bold my-6 uppercase"
         >
