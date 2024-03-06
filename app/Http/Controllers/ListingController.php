@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Listing;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ListingController extends Controller
@@ -161,8 +162,12 @@ class ListingController extends Controller
      */
     public function manage(): \Illuminate\View\View
     {
+        $user = auth()->user();
+        $listings = $user->listings()->get();
+
         return view('listings/manage', [
-            'listings' => auth()->user()->listings()->get()
+            'listings' => $listings,
+            'user' => $user
         ]);
     }
 }

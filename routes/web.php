@@ -59,6 +59,10 @@ Route::post('users/authenticate',[
     UserController::class, 'authenticate'
 ])->middleware('guest');
 
+Route::put('users/{user}', [
+    UserController::class, 'put'
+])->middleware('auth');
+
 Route::get('/manage', [
     ListingController::class, 'manage'
 ])->middleware('auth');
