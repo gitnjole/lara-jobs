@@ -8,7 +8,7 @@ LaraJobs posting board is a RESTful API application built on top of the Laravel 
 - **Job Posting:** Users can create and post job listings.
 - **Job Browsing:** Visitors can browse through existing job listings and can directly send an email or view the posting company's website.
 - **User Authentication:** Secure user authentication system for creating and managing accounts.
-- **Manage Panel:** Features a bare bones admin panel for editing or deleting job listings, securely.
+- **Manage Panel:** Features a bare bones admin panel for editing or deleting job listings, along with company name and logo securely.
 
 ### Viewing all listings
 ![Alt text](public/images/layout.png)
@@ -56,6 +56,8 @@ I have a couple ideas for improving this project so you can check back after som
 
 - ~~**Company banners:** Users need to post their company logo every time they post a job which gets very tedious and storage consuming. I could refine this so that users need to post a company logo which would be permanent throughout their account listings (but changeable), and if they wish they can post additional 'banners' on their listings to customize the look of the listing~~
 - **Company banners** have been implemented and logos are now permanent throughout your listings!
+
+- **Redefine User-Company-Listings relations:** Currently, the user is basically the company and the field 'name' is synonymous with the name of their company. Aside from confusion it would be a good idea to invest time to redefine the database structure and allow for discrete, precise attributes for users and companies. Along with this I should eliminate the need to retype the company name every time a listing is posted, along with location/company description etc.
 
 Projected complexity: Time consuming
 
