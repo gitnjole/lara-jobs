@@ -97,11 +97,18 @@
         <div class="mt-8">
             <p>
                 Already have an account?
-                <a href="/login" class="text-laravel"
-                    >Login</a
-                >
+                <a href="/login" class="text-laravel">Login</a>
             </p>
         </div>
     </form>
 </x-card>
+
+<script>
+    function showCompanyFields() {
+        document.getElementById('company-fields').style.display = 'block';
+        document.getElementById('next-button').style.display = 'none';
+        document.getElementById('register-button').style.display = 'block';
+    }
+</script>
+
 @endsection
