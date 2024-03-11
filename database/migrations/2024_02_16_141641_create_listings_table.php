@@ -16,12 +16,8 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()
             ->onDelete('CASCADE');
             $table->string('title');
-            $table->string('company_name');
             $table->string('banner_path')->nullable();
             $table->string('tags');
-            $table->string('location');
-            $table->string('contact_email');
-            $table->string('website');
             $table->longText('description')->nullable();
             $table->timestamps();
         });
