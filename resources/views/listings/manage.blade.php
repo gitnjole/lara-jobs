@@ -13,10 +13,25 @@
 
                 <div class="mb-6">
                     <label for="name" class="block text-lg font-semibold mb-2">Company name:</label>
-                    <input type="text" name="name" id="name" value="{{$user->name}}" class="w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:border-blue-400">
+                    <input type="text" name="name" id="name" value="{{$user->company_name}}" class="w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:border-blue-400">
                 </div>
 
-                <div class="mb-6 flex justify-center items-center">
+                <div class="mb-6">
+                    <label for="name" class="block text-lg font-semibold mb-2">Location:</label>
+                    <input type="text" name="name" id="name" value="{{$user->location}}" class="w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:border-blue-400">
+                </div>
+
+                <div class="mb-6">
+                    <label for="name" class="block text-lg font-semibold mb-2">Contact Email:</label>
+                    <input type="text" name="name" id="name" value="{{$user->contact_email}}" class="w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:border-blue-400">
+                </div>
+
+                <div class="mb-6">
+                    <label for="name" class="block text-lg font-semibold mb-2">Website:</label>
+                    <input type="text" name="name" id="name" value="{{$user->website}}" class="w-full px-4 py-2 rounded border border-gray-300 focus:outline-none focus:border-blue-400">
+                </div>
+
+                <div class="mb-6 flex-col justify-center items-center">
                     <label for="logo" class="block text-lg font-semibold mb-2">Company logo:</label>
                     <img src="{{ asset($user->logo_path ? 'storage/' . $user->logo_path : 'images/no-image.png') }}" class="logo">
                 </div>

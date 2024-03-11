@@ -8,28 +8,12 @@ class="bg-gray-50 border border-gray-200 p-10 rounded max-w-lg mx-auto mt-24"
     <h2 class="text-2xl font-bold uppercase mb-1">
         Create a job
     </h2>
-    <p class="mb-4">List a job to find a developer</p>
+    <p>List a job to find a developer</p>
+    <p class="mb-3 text-sm">Need to edit company details? You can do so <a class="font-bold" href="/manage">here.</a></p>
 </header>
 
 <form action="/listings" method="POST" enctype="multipart/form-data">
     @csrf
-    <div class="mb-6">
-        <label
-            for="company_name"
-            class="inline-block text-lg mb-2"
-            >Company Name</label
-        >
-        <input
-            type="text"
-            class="border border-gray-200 rounded p-2 w-full"
-            name="company_name"
-            value="{{old('company_name')}}"
-        />
-        @error('company_name')
-        <p class="text-red-500">{{$message}}</p>
-        @enderror
-    </div>
-
     <div class="mb-6">
         <label for="title" class="inline-block text-lg mb-2"
             >Job Title</label
@@ -42,57 +26,6 @@ class="bg-gray-50 border border-gray-200 p-10 rounded max-w-lg mx-auto mt-24"
             value="{{old('title')}}"
         />
         @error('title')
-        <p class="text-red-500">{{$message}}</p>
-        @enderror
-    </div>
-
-    <div class="mb-6">
-        <label
-            for="location"
-            class="inline-block text-lg mb-2"
-            >Job Location</label
-        >
-        <input
-            type="text"
-            class="border border-gray-200 rounded p-2 w-full"
-            name="location"
-            placeholder="Example: Remote, Boston MA, etc"
-            value="{{old('location')}}"
-        />
-        @error('location')
-        <p class="text-red-500">{{$message}}</p>
-        @enderror
-    </div>
-
-    <div class="mb-6">
-        <label for="contact_email" class="inline-block text-lg mb-2"
-            >Contact Email</label
-        >
-        <input
-            type="text"
-            class="border border-gray-200 rounded p-2 w-full"
-            name="contact_email"
-            value="{{old('contact_email')}}"
-        />
-        @error('contact_email')
-        <p class="text-red-500">{{$message}}</p>
-        @enderror
-    </div>
-
-    <div class="mb-6">
-        <label
-            for="website"
-            class="inline-block text-lg mb-2"
-        >
-            Website/Application URL
-        </label>
-        <input
-            type="text"
-            class="border border-gray-200 rounded p-2 w-full"
-            name="website"
-            value="{{old('website')}}"
-        />
-        @error('website')
         <p class="text-red-500">{{$message}}</p>
         @enderror
     </div>

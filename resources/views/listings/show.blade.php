@@ -12,10 +12,10 @@
             <img src="{{$listing['banner_path'] ? asset('storage/' .$listing['banner_path']) : asset('/images/no-image.png')}}" class="logo"/>
             
             <h3 class="text-2xl mb-2">{{$listing['title']}}</h3>
-            <div class="text-xl font-bold mb-4">{{$listing['companty_name']}}</div>
+            <div class="text-xl font-bold mb-4">{{$user['company_name']}}</div>
             <x-listing-tags :tagsCsv="$listing['tags']" />
             <div class="text-lg my-4">
-                <i class="fa-solid fa-location-dot"></i>{{$listing['location']}}
+                <i class="fa-solid fa-location-dot"></i>{{$user['location']}}
             </div>
 
             <div class="border border-gray-200 w-full mb-6"></div>
@@ -30,14 +30,14 @@
                     </p>
 
                     <a
-                        href="mailto:{{$listing['email']}}"
+                        href="mailto:{{$user['email']}}"
                         class="block bg-laravel text-white mt-6 py-2 rounded-xl hover:opacity-80"
                         ><i class="fa-solid fa-envelope"></i>
                         Contact Employer</a
                     >
 
                     <a
-                        href="{{$listing['website']}}"
+                        href="{{$user['website']}}"
                         target="_blank"
                         class="block bg-black text-white py-2 rounded-xl hover:opacity-80"
                         ><i class="fa-solid fa-globe"></i> Visit

@@ -20,7 +20,7 @@ class ListingController extends Controller
         $listings = Listing::with('user')->latest()
             ->filter($request->only('tag', 'search'))
             ->simplePaginate(6);
-
+            
         return view('listings/index', [
             'listings' => $listings
         ]);
@@ -35,8 +35,11 @@ class ListingController extends Controller
      */
     public function show(Listing $listing): \Illuminate\View\View
     {
+        $user = $listing->user;
+
         return view('listings/show', [
-            'listing' => $listing
+            'listing' => $listing,
+            'user' => $user
         ]);
     }
 
@@ -62,13 +65,9 @@ class ListingController extends Controller
     {
         $formFields = $request->validate([
             'title' => 'required',
-            'company_name' => 'required',
-            'location' => 'required',
-            'contact_email' => 'required|email',
             'tags' => 'required',
-            'website' => 'required|url',
             'description' => 'nullable',
-        ]);  
+        ]);
 
         if ($request->hasFile('banner')) {
             $formFields['banner_path'] = $request->file('banner')->store('banners', 'public');

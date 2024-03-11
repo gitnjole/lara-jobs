@@ -27,9 +27,12 @@ class UserController extends Controller
     public function store(Request $request): \Illuminate\Http\RedirectResponse
     {
         $formFields = $request->validate([
-            'name' => 'required|min:4',
             'email' => "required|email|unique:users,email",
-            'password' => 'required|confirmed|min:12',
+            'password' => 'required|confirmed|min:6',
+            'company_name' => 'required',
+            'location' => 'required',
+            'contact_email' => 'required|email',
+            'website' => 'nullable'
         ]);  
 
         if ($request->hasFile('logo')) {
@@ -38,7 +41,11 @@ class UserController extends Controller
 
         $formFields['password'] = bcrypt($formFields['password']);
 
-        $user = User::create($formFields);
+        try {
+            $user = User::create($formFields);
+        } catch (\Exception $e) {
+            dd($e->getMessage());
+        }
 
         auth()->login($user);
         
