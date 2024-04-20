@@ -34,3 +34,4 @@ Route::post('logout', [UserController::class, 'logout'])->middleware('auth');
 Route::get('login', [UserController::class, 'login'])->name('login')->middleware('guest');
 Route::post('users/authenticate', [UserController::class, 'authenticate'])->middleware('guest');
 Route::put('users/{user}', [UserController::class, 'put'])->middleware('auth');
+Route::get('{user}/profile', [UserController::class, 'profile'])->middleware('auth');
