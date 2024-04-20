@@ -1,31 +1,23 @@
 @extends('components/layout')
 @section('content')
 
-<div class="container" style="
-  display:grid;
-  grid-template-columns:25% 50% 25%;
-  gap:20px;
-  margin: 0;
-"> 
+<div class="container mx-auto grid grid-cols-3 gap-20"> 
   <div class="left-column">
-      <x-card class="p-10">
-        </x-card>
+    <x-card class="p-10">
+      <h1 class="text-3xl text-center font-bold my-6 uppercase">Banner / Profile photo</h1>
+    </x-card>
   </div>
 
   <div class="middle-column">
-     <x-card class="p-10">
-       <header>
-         <h1 class="text-3xl text-center font-bold my-6 uppercase">User Profile</h1>
-       </header>
-       </x-card> 
+    <x-card class="p-10">
+        <h1 class="text-3xl text-center font-bold my-6 uppercase">User Profile Details</h1>
+    </x-card> 
   </div>
 
   <div class="right-column">
-     <x-card class="p-10">
-        <header>
-          <h1 class="text-3xl text-center font-bold my-6 uppercase">Random Links</h1>
-        </header>
-        </x-card>
+    <x-card class="p-10">
+        <h1 class="text-3xl text-center font-bold my-6 uppercase">Links</h1>
+    </x-card>
   </div>
-
-</div> @endsection
+</div> 
+@endsection

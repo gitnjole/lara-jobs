@@ -39,9 +39,9 @@
                     </span>
                 </li>
                 <li>
-                    <a href="/manage" class="hover:text-laravel"
+                    <a href="/{{ auth()->user()->id}}/profile" class="hover:text-laravel"
                         ><i class="fa-solid fa-gear"></i>
-                        Manage Your Listings
+                        Manage Your Account
                     </a>
                 </li>
                 <li>
