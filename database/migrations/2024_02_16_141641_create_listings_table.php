@@ -13,11 +13,10 @@ return new class extends Migration
     {
         Schema::create('listings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()
-            ->onDelete('CASCADE');
+            $table->morphs('listable');
             $table->string('title');
-            $table->string('banner_path')->nullable();
             $table->string('tags');
+            $table->string('banner_path')->nullable();
             $table->longText('description')->nullable();
             $table->timestamps();
         });
