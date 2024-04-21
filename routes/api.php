@@ -20,5 +20,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/listings', [
-    ApiListingController::class, 'show'
+    ApiListingController::class, 'index'
 ]);
