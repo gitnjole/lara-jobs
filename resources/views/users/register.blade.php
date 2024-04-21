@@ -6,12 +6,20 @@
         <h2 class="text-2xl font-bold uppercase mb-1">
             Register
         </h2>
-        <p class="mb-4">Create an account and company to post jobs</p>
+        <p class="mb-4">Create an account as a user or a company to post jobs</p>
     </header>
 
     <form action="/register" method="POST" enctype="multipart/form-data">
         @csrf
 
+        <div class="mb-6">
+            <label class="inline-block text-lg mb-2">Register as:</label>
+            <div class="flex justify-center w-full">
+                <button type="button" id="user-button" class="hover:bg-gray-300 text-black font-bold py-2 px-4 rounded mr-2">User</button>
+                <button type="button" id="company-button" class="hover:bg-gray-300 text-black font-bold py-2 px-4 rounded">Company</button>
+            </div>
+        </div>
+               
         <div class="mb-6">
             <label for="email" class="inline-block text-lg mb-2">Email</label>
             <input type="email" class="border border-gray-200 rounded p-2 w-full" name="email">
@@ -85,11 +93,8 @@
             </div>
         </div>
 
-        <div class="mb-6">
-            <button id="next-button" type="button" class="bg-laravel text-white rounded py-2 px-4 hover:bg-black" onclick="showCompanyFields()">
-                Next
-            </button>
-            <button id="register-button" type="submit" class="bg-laravel text-white rounded py-2 px-4 hover:bg-black" style="display: none;">
+        <div class="mb-6 flex justify-center w-full">
+            <button id="register-button" type="submit" class="bg-laravel text-white rounded py-2 px-4 hover:bg-black">
                 Sign Up
             </button>
         </div>
@@ -104,11 +109,26 @@
 </x-card>
 
 <script>
-    function showCompanyFields() {
-        document.getElementById('company-fields').style.display = 'block';
-        document.getElementById('next-button').style.display = 'none';
-        document.getElementById('register-button').style.display = 'block';
+    const companyFields = document.getElementById('company-fields');
+    const userButton = document.getElementById('user-button');
+    const companyButton = document.getElementById('company-button');
+
+    function toggleCompanyFields(show) {
+        if (show) {
+            companyFields.style.display = 'block';
+            companyButton.classList.add('bg-laravel', 'text-white');
+            userButton.classList.remove('bg-laravel', 'text-white');
+        } else {
+            companyFields.style.display = 'none';
+            userButton.classList.add('bg-laravel', 'text-white');
+            companyButton.classList.remove('bg-laravel', 'text-white');
+        }
     }
+
+   toggleCompanyFields(false); 
+
+   userButton.addEventListener('click', () => toggleCompanyFields(false));
+   companyButton.addEventListener('click', () => toggleCompanyFields(true));
 </script>
 
 @endsection
