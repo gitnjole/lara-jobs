@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class Listing extends Model
 {
@@ -11,15 +12,15 @@ class Listing extends Model
 
     protected $fillable = [
         'title',
-        'company_name',
-        'location',
-        'website',
-        'contact_email',
-        'description',
         'tags',
         'banner_path',
-        'user_id'
+        'description',
     ];
+
+    public function listable()
+    {
+        return $this->morphTo();
+    }
 
     public function scopeFilter($query, array $filters)
     {
@@ -33,10 +34,5 @@ class Listing extends Model
                 ->orWhere('company_name', 'like', '%' . $filters['search'] . '%')
                 ->orWhere('tags', 'like', '%' . $filters['search'] . '%');
         }
-    }
-
-    public function user()
-    {
-        return $this->belongsTo(User::class, 'user_id');      
     }
 }
