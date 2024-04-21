@@ -17,12 +17,19 @@ class ListingController extends Controller
      */
     public function index(Request $request): \Illuminate\View\View
     {
-        $listings = Listing::with('user')->latest()
-            ->filter($request->only('tag', 'search'))
-            ->simplePaginate(6);
-            
+        $companyListings = Listing::where('listable_type', 'App\Models\Company')
+                                ->latest()
+                                ->filter($request->only('tag', 'search'))
+                                ->simplePaginate(6);
+
+        $userListings = Listing::where('listable_type', 'App\Models\User')
+                                ->latest()
+                                ->filter($request->only('tag', 'search'))
+                                ->simplePaginate(2);
+    
         return view('listings/index', [
-            'listings' => $listings
+            'companyListings' => $companyListings,
+            'userListings' => $userListings
         ]);
     }
     
