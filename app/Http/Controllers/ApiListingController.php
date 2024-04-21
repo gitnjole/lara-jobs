@@ -11,10 +11,10 @@ class ApiListingController extends Controller
     {
         $listings = Listing::get();
 
-        if (empty($listings)) {
+        if (!$listings) {
             return response()->json('No listings found.');
         } else {
-            return response()->json('Listings found!');
+            return response()->json($listings);
         }
     }
 
