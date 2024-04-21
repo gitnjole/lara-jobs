@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,12 @@ class CompanyFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => fake()->name(),
+            'password' => Hash::make('password'),
+            'location' => fake()->city(),            
+            'email' => fake()->unique()->safeEmail(),
+            'contact_email' => fake()->unique()->safeEmail(),
+            'website' => fake()->url()
         ];
     }
 }

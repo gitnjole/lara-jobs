@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
+use App\Models\Company;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,14 +18,20 @@ class ListingFactory extends Factory
      */
     public function definition(): array
     {
+        /**
+         * Need to be generated and seeded before ListingFactory is called!
+         */
+        $listableOptions = [User::all(), Company::all()];
+        $listableType = $listableOptions[rand(0, 1)];
+        $listable = $listableType->random();
+        
+
         return [
             'title' => $this->faker->sentence(),
             'tags' => 'laravel, api, js',
-            'company_name' => $this->faker->company(),
-            'contact_email' => $this->faker->companyEmail(),
-            'website' => $this->faker->url(),
-            'location' => $this->faker->city(),
-            'description' => $this->faker->paragraph(4)
+            'description' => $this->faker->paragraph(6),
+            'listable_type' => get_class($listable),
+            'listable_id' => $listable->getKey(),
         ];
     }
 }
