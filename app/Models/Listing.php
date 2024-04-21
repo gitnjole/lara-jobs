@@ -35,4 +35,14 @@ class Listing extends Model
                 ->orWhere('tags', 'like', '%' . $filters['search'] . '%');
         }
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'listable_id', 'id');
+    }
+
+    public function company()
+    {
+        return $this->belongsTo(Company::class, 'listable_id', 'id');
+    }
 }
