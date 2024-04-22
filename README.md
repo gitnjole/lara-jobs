@@ -41,6 +41,13 @@ php artisan migrate
 php artisan serve
 ```
 
+6. (Optional) Application Key Encryption
+In case you encounter an error `RuntimeException No application encryption key has been specified.` you need to run the following command:
+```bash
+php artisan key:generate
+php artisan config:cache
+```
+
 ## Usage
 
 - Register for an account to post job listings
