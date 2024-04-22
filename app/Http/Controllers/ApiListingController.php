@@ -9,7 +9,7 @@ class ApiListingController extends Controller
 {    
     public function index()
     {
-        $listings = Listing::get();
+        $listings = Listing::select('id','listable_type', 'title', 'tags', 'description', 'created_at', 'updated_at')->get();
 
         if (!$listings) {
             return response()->json('No listings found.');
