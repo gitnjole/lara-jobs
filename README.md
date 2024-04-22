@@ -1,5 +1,11 @@
 # LaraJobs
 
+<p align="center">
+<img width="40px" src="public/images/readme/laravel.png"/> 
+<img width="40px" src="public/images/readme/mariadb.png"/> 
+<img width="40px" src="public/images/readme/tailwind.png"/> 
+</p> 
+
 This is a simple job posting board built using the Laravel framework. It allows users to post job listings and browse existing listings. Visitors can view job listings and sort them through tags and search filters.
 
 LaraJobs posting board is a web application built on top of the Laravel framework and MySQL database. Leveraging Laravel's migration system, the database schema was created and managed effortlessly. The application follows REST principles, providing clear and intuitive endpoints for performing CRUD operations on job listings.
@@ -29,7 +35,12 @@ git clone https://github.com/gitnjole/lara-jobs
 composer install
 ```
 
-3. Create a copy of '.env.example' file and rename it to '.env' where you will modify your configuration for the application and database.
+3. Create a copy of `.env.example` file and rename it to `.env` where you will modify your configuration for the application and database.
+```bash
+DB_DATABASE=laravel
+DB_USERNAME=root
+DB_PASSWORD=
+```
 
 4.  Migrate the database:
 ```bash
