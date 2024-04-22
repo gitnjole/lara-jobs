@@ -1,4 +1,5 @@
 <p align="center">
+<img width="120px" src="public/images/readme/php.png"/> 
 <img width="80px" src="public/images/readme/laravel.png"/> 
 <img width="80px" src="public/images/readme/mariadb.png"/> 
 <img width="80px" src="public/images/readme/tailwind.png"/> 
