@@ -62,10 +62,8 @@ php artisan config:cache
     {
         "id": 1,
         "listable_type": "App\\Models\\Company",
-        "listable_id": 5,
         "title": "Aut sequi error culpa amet et et.",
         "tags": "laravel, api, js",
-        "banner_path": null,
         "description": "Aspernatur impedit ea a eum consequuntur molestias. Reprehenderit pariatur est quibusdam optio itaque quos iste. Qui ex reprehenderit est voluptatum officia. Odio odio cupiditate quo sint et voluptatem quaerat. Sit deleniti ratione doloremque vero animi optio qui.",
         "created_at": "2024-04-21T15:58:52.000000Z",
         "updated_at": "2024-04-21T15:58:52.000000Z"
@@ -73,10 +71,8 @@ php artisan config:cache
     {
         "id": 2,
         "listable_type": "App\\Models\\Company",
-        "listable_id": 8,
         "title": "Et architecto quam voluptatem expedita et voluptas aut.",
         "tags": "laravel, api, js",
-        "banner_path": null,
         "description": "Ipsum rerum enim eveniet possimus aut. Voluptatum qui nulla quia fugit velit qui hic eius. Inventore architecto ea mollitia laudantium veritatis quia. Autem et repellat fugiat debitis error et. Dolor totam quod nesciunt ut est dolor rem. Adipisci nisi provident expedita aut. Voluptatem molestias eligendi aliquid quo animi. Optio maxime sint optio et. Temporibus qui modi dignissimos in optio omnis vitae.",
         "created_at": "2024-04-21T15:58:52.000000Z",
         "updated_at": "2024-04-21T15:58:52.000000Z"
