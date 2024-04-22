@@ -1,10 +1,10 @@
-# LaraJobs
-
 <p align="center">
-<img width="40px" src="public/images/readme/laravel.png"/> 
-<img width="40px" src="public/images/readme/mariadb.png"/> 
-<img width="40px" src="public/images/readme/tailwind.png"/> 
+<img width="80px" src="public/images/readme/laravel.png"/> 
+<img width="80px" src="public/images/readme/mariadb.png"/> 
+<img width="80px" src="public/images/readme/tailwind.png"/> 
 </p> 
+
+# LaraJobs
 
 This is a simple job posting board built using the Laravel framework. It allows users to post job listings and browse existing listings. Visitors can view job listings and sort them through tags and search filters.
 
