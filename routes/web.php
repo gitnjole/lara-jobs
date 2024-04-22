@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\RegistrationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ListingController;
+use App\Http\Controllers\RegistrationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,14 +36,22 @@ Route::post('register', [RegistrationController::class, 'store']);
 
 /*
 |--------------------------------------------------------------------------
+| Authentication routes
+|--------------------------------------------------------------------------
+|
+*/
+
+Route::post('logout', [LoginController::class, 'logout'])->middleware('auth');
+Route::get('login', [LoginController::class, 'login'])->name('login')->middleware('guest');
+Route::post('authenticate', [LoginController::class, 'authenticate'])->middleware('guest');
+
+/*
+|--------------------------------------------------------------------------
 | User routes
 |--------------------------------------------------------------------------
 |
 */
 
-Route::post('logout', [UserController::class, 'logout'])->middleware('auth');
-Route::get('login', [UserController::class, 'login'])->name('login')->middleware('guest');
-Route::post('users/authenticate', [UserController::class, 'authenticate'])->middleware('guest');
 Route::put('users/{user}', [UserController::class, 'put'])->middleware('auth');
 Route::get('{user}/profile', [UserController::class, 'profile'])->middleware('auth');
 
@@ -53,8 +62,5 @@ Route::get('{user}/profile', [UserController::class, 'profile'])->middleware('au
 |
 */
 
-Route::post('logout', [CompanyController::class, 'logout'])->middleware('auth');
-Route::get('login', [CompanyController::class, 'login'])->name('login')->middleware('guest');
-Route::post('companys/authenticate', [CompanyController::class, 'authenticate'])->middleware('guest');
-Route::put('companys/{Company}', [CompanyController::class, 'put'])->middleware('auth');
-Route::get('{company}/profile', [CompanyController::class, 'profile'])->middleware('auth');
+Route::put('companies/{Company}', [CompanyController::class, 'put'])->middleware('auth');
+Route::get('{companies}/profile', [CompanyController::class, 'profile'])->middleware('auth');

@@ -9,7 +9,7 @@
         <p class="mb-4">Login to your account!</p>
     </header>
 
-    <form action="/users/authenticate" method="POST">
+    <form action="/authenticate" method="POST">
         @csrf
         <div class="mb-6">
             <label for="email" class="inline-block text-lg mb-2"
