@@ -4,45 +4,28 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Http\UploadedFile;
 
 class UserController extends Controller
-{    
-    /**
-     * Method for showing create view
-     *
-     * @return \Illuminate\View\View
-     */
-    public function create(): \Illuminate\View\View
-    {
-        return view('users/register');
-    }
-    
+{      
     /**
      * Method for storing new user in database
      *
-     * @param Request $request
+     * @param array $data
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request): \Illuminate\Http\RedirectResponse
-    {
-        $formFields = $request->validate([
-            'email' => "required|email|unique:users,email",
-            'password' => 'required|confirmed|min:6',
-            'company_name' => 'required',
-            'location' => 'required',
-            'contact_email' => 'required|email',
-            'website' => 'nullable'
-        ]);  
+    public function store(array $data): \Illuminate\Http\RedirectResponse
+    { 
+        if ($data['pfp'] instanceof UploadedFile) {
+            $data['pfp_path'] = $data['pfp']->store('pfps', 'public');
+            unset($data['pfp']);
+        }    
 
-        if ($request->hasFile('logo')) {
-            $formFields['logo_path'] = $request->file('logo')->store('logos', 'public');
-        }
-
-        $formFields['password'] = bcrypt($formFields['password']);
+        $data['password'] = bcrypt($data['password']);
 
         try {
-            $user = User::create($formFields);
+            $user = User::create($data);
         } catch (\Exception $e) {
             dd($e->getMessage());
         }

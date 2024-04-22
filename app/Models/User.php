@@ -20,7 +20,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'locaiton',
+        'location',
         'pfp_path',
         'website'
     ];
