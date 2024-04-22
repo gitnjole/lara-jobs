@@ -9,7 +9,7 @@ class RegistrationController extends Controller
 {
     public function create(): \Illuminate\View\View
     {
-        return view('users/register');
+        return view('register');
     }
 
     public function store(RegistrationRequest $request)
